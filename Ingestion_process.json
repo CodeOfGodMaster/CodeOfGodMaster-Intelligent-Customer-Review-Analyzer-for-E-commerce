@@ -1,0 +1,12 @@
+{
+  "sourceBucket": "myproj-reviews-processed-akshayladha",
+  "fileFormat": "csv",
+  "entries": [
+    {
+      "uri": "s3://myproj-reviews-processed-akshayladha/summaries/realistic_sentiment_dataset_3000.csv",
+      "mandatory": true,
+      "size": 1100000,
+      "etag": "e2ccad85395997087a767031d95716b3"
+    }
+  ]
+}
