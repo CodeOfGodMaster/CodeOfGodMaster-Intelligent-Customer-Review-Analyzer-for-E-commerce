@@ -2,8 +2,7 @@
 Automated Sentiment Detection, Key Phrase Extraction & Summarization using AWS Lambda, Comprehend, SageMaker & QuickSight
 🚀 Overview
 
-This project implements an AI-driven customer review analytics pipeline using AWS cloud services.
-It automatically performs:
+This project implements an AI-driven customer review analytics pipeline built entirely using AWS cloud services. It automatically performs:
 
 Sentiment Analysis
 
@@ -15,7 +14,11 @@ ETL & Data Processing
 
 Interactive Dashboard Visualization
 
-The final output is an Amazon QuickSight dashboard showing sentiment distribution, category insights, keyword patterns, and AI-generated summaries.
+The final output is an Amazon QuickSight dashboard displaying:
+✔ Sentiment distribution
+✔ Category insights
+✔ Keyword patterns
+✔ AI-generated summaries
 
 <p align="center"><br><em>Figure 1: QuickSight Dashboard – Customer Review Insights</em></p>
 🧭 Table of Contents
@@ -61,19 +64,19 @@ Amazon QuickSight (Dashboard)
 
 Customer review CSV uploaded to S3
 
-Upload triggers Lambda for ingestion
+Upload triggers a Lambda function
 
 2. ETL & AI Processing (AWS Lambda + Comprehend)
 
 Data cleaning & normalization
 
-Sentiment classification
+Sentiment classification (Positive / Negative / Neutral / Mixed)
 
 Key phrase extraction
 
 3. Processed Storage (Amazon DynamoDB)
 
-Stores enriched review entries including:
+Stores enriched review entries:
 
 ReviewID
 
@@ -85,28 +88,28 @@ Category
 
 Sentiment
 
-Score
+Sentiment Score
 
 Key Phrases
 
 4. Text Summarization (Amazon SageMaker)
 
-Lambda aggregates text
+Lambda aggregates review text
 
-SageMaker JumpStart model generates dataset-level summaries
+SageMaker JumpStart model produces summaries
 
-5. Dashboard Visualization (QuickSight)
+5. Dashboard Visualization (Amazon QuickSight)
 
-Loads data from DynamoDB/S3
+Imports data from DynamoDB / S3
 
-Provides KPIs, charts, heatmaps, interactive filters
+Provides interactive dashboards & insights
 
 🚀 Features Implemented
 ✔ Automatic Review Processing
 
-Uploads CSV → triggers Lambda → cleans & processes reviews automatically.
+Uploads CSV → Lambda cleans & processes reviews end-to-end.
 
-✔ Sentiment Analysis (Amazon Comprehend)
+✔ Sentiment Analysis (Comprehend)
 
 Detects:
 
@@ -120,15 +123,16 @@ Mixed
 
 ✔ Key Phrase Extraction
 
-Identifies meaningful customer keywords.
+Identifies important customer keywords such as:
+quality, size, material, return policy…
 
 ✔ AI-Powered Summarization (SageMaker)
 
-Generates both product-level and dataset-level summaries.
+Generates dataset-level summaries.
 
 ✔ DynamoDB Storage
 
-Stores enriched, structured review data.
+Fully structured and query-optimized data store.
 
 ✔ QuickSight Dashboard
 
@@ -147,9 +151,10 @@ KPI Cards
 Searchable Review Table
 
 📁 Dataset Used
+
 Women’s Clothing E-Commerce Reviews Dataset
 
-Includes:
+Contains:
 
 Review Text
 
@@ -176,35 +181,37 @@ Amazon QuickSight	Dashboard visualization
 🧪 How It Works
 1️⃣ Upload Review File
 
-CSV uploaded to S3
+User uploads the CSV
 
-Triggers Lambda automatically
+S3 triggers Lambda
 
 2️⃣ Processing Pipeline
 
 Lambda performs:
 
-Reads rows
+Data validation
 
-Cleans invalid entries
+Cleansing
 
-Calls Comprehend
+Comprehend Sentiment API call
 
-Stores results in DynamoDB
+Key phrase extraction
 
-3️⃣ Summarization
+DynamoDB insertion
+
+3️⃣ Summarization Process
 
 Second Lambda:
 
-Extracts review text
+Extracts all review text
 
-Sends to SageMaker
+Sends to SageMaker for summarization
 
-Saves summary
+Saves outputs
 
 4️⃣ Visualization
 
-QuickSight loads processed dataset and generates dashboards.
+QuickSight loads enriched data for visual dashboards.
 
 📊 Dashboard Sheets
 Sheet 1 — Business Overview
@@ -225,7 +232,7 @@ Category vs Sentiment Heatmap
 
 Avg Rating by Category
 
-Word Cloud (Key Phrases)
+Key Phrase Word Cloud
 
 Category Filter
 
@@ -235,24 +242,24 @@ Searchable Review Table
 
 Sentiment Score by Review
 
-Key Phrase Word Cloud
+Individual Review Key Phrases
 
-Individual Review Insights
+AI Summary
 
 🧾 Sample Output
 
-84% reviews are positive
+84% reviews are Positive
 
 Frequent keywords: quality, size, fit, material
 
-Dresses & Tops show highest satisfaction
+Dresses & Tops show highest sentiment
 
 AI summaries reflect customer emotions accurately
 
 🧩 Tech Stack
 Layer	Tools
 Programming	Python (Lambda)
-AI/ML	Amazon Comprehend, SageMaker
+AI/ML	Comprehend, SageMaker
 Storage	S3, DynamoDB
 Visualization	QuickSight
 Automation	S3 Event Triggers
